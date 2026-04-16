@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    image: python:3.9-slim
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    command: sh -c "pip install -r requirements.txt && python app.py"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: orders_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_orders_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_orders_data:
