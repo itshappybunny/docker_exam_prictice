@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from datetime import timedelta
 from django.utils import timezone
 
-# 1. Настройки (ВАЖНО: добавляем __name__ в INSTALLED_APPS)
+# 1. Настройки
 if not settings.configured:
     settings.configure(
         DEBUG=True,
@@ -13,34 +13,34 @@ if not settings.configured:
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'orders_db', 'USER': 'admin', 'PASSWORD': 'password', 'HOST': 'db', 'PORT': '5432',
         }},
-        INSTALLED_APPS=['app'], # Имя должно совпадать с именем файла (app.py)
+        INSTALLED_APPS=[], # Оставляем пустым, чтобы не было рекурсии
         TIME_ZONE='UTC',
         USE_TZ=True,
         SECRET_KEY='fake-key',
-        ROOT_URLCONF=__name__, # Указываем, что роуты искать в этом же файле
+        ROOT_URLCONF=__name__,
     )
     django.setup()
 
-# 2. Модели
 from django.db import models, connection
 
+# 2. Модель (без привязки к приложению через app_label)
 class Order(models.Model):
     item = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     delivered_at = models.DateTimeField(null=True)
 
     class Meta:
-        app_label = 'app' # Должно совпадать с именем файла без .py
-        managed = False 
+        managed = False
         db_table = 'app_order'
+        app_label = 'main_app' # Любое имя, отличное от имени файла
 
-# 3. View-функции
+# 3. Функции
 def add_order(request):
     item_name = request.GET.get('item', 'Generic Item')
     order = Order.objects.create(item=item_name)
     order.delivered_at = timezone.now() + timedelta(hours=2)
     order.save()
-    return JsonResponse({"status": "Заказ создан", "id": order.id}, json_dumps_params={'ensure_ascii': False})
+    return JsonResponse({"status": "Заказ создан", "id": order.id})
 
 def delivery_report(request):
     orders = Order.objects.exclude(delivered_at__isnull=True)
@@ -51,26 +51,24 @@ def delivery_report(request):
     avg_hours = (total_seconds / len(orders)) / 3600
     return JsonResponse({"avg_delivery_time_hours": round(avg_hours, 2)})
 
-# 4. Роуты (URLS)
+# 4. Роуты
 from django.urls import path
 urlpatterns = [
     path('add/', add_order),
     path('report/', delivery_report),
 ]
 
-# 5. Точка входа
+# 5. Приложение для сервера
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 
 if __name__ == "__main__":
-    import time
     import uvicorn
+    import time
     
-    # Даем базе время (10 секунд для уверенности)
-    print("Ожидаем базу данных...")
-    time.sleep(10)
+    print("Ожидание базы данных (15 сек)...")
+    time.sleep(15)
     
-    # Создаем таблицу
     with connection.cursor() as cursor:
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS app_order (
@@ -80,5 +78,6 @@ if __name__ == "__main__":
                 delivered_at TIMESTAMP WITH TIME ZONE
             );
         """)
-    print("Таблица готова. Запуск сервера...")
-    uvicorn.run("__main__:application", host="0.0.0.0", port=8000, reload=True)
+    
+    print("Старт сервера на http://localhost:8000")
+    uvicorn.run(application, host="0.0.0.0", port=8000)
