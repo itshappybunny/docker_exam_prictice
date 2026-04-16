@@ -1,10 +1,7 @@
-dev@dev-vm:~/Documents/5_task$ sudo docker compose up --build -d
+dev@dev-vm:~/Documents/5_task$ sudo docker compose ps
 WARN[0000] /home/dev/Documents/5_task/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
-[+] up 3/3
- ✔ Network 5_task_default Created                                                                            0.1ss
- ✔ Container 5_task-db-1  Healthy                                                                            44.9s
- ✔ Container 5_task-app-1 Created                                                                            0.0ss
-Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint 5_task-app-1 (93e8019053828264fea737a76da6b2c504d9fb26a80f6922e3c5c8411dd2d648): Bind for 0.0.0.0:5000 failed: port is already allocated
+NAME          IMAGE          COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+5_task-db-1   neo4j:latest   "tini -g -- /startup…"   db        10 minutes ago   Up 10 minutes (healthy)   0.0.0.0:7474->7474/tcp, 7473/tcp, 0.0.0.0:7687->7687/tcp
 
 
 Будем использовать язык запросов **Cypher**.
