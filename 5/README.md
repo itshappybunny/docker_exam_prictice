@@ -1,9 +1,10 @@
-dev@dev-vm:~$ curl -X POST -H "Content-Type: application/json" -d '{"username": "anna", "hashtag": "docker"}' http://localhost:5000/add_post
-<!doctype html>
-<html lang=en>
-<title>404 Not Found</title>
-<h1>Not Found</h1>
-<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+dev@dev-vm:~/Documents/5_task$ sudo docker compose up --build -d
+WARN[0000] /home/dev/Documents/5_task/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] up 3/3
+ ✔ Network 5_task_default Created                                                                            0.1ss
+ ✔ Container 5_task-db-1  Healthy                                                                            44.9s
+ ✔ Container 5_task-app-1 Created                                                                            0.0ss
+Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint 5_task-app-1 (93e8019053828264fea737a76da6b2c504d9fb26a80f6922e3c5c8411dd2d648): Bind for 0.0.0.0:5000 failed: port is already allocated
 
 
 Будем использовать язык запросов **Cypher**.
