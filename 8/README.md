@@ -8,3 +8,5 @@ curl -X POST -H "Content-Type: application/json" -d '{"category": "Food", "item_
 
 
 curl http://localhost:5000/average_demand
+
+*sudo docker compose up -d --build
