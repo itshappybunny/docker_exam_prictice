@@ -112,8 +112,6 @@ gunicorn
 **Внимание:** Мы будем использовать порт **8000**, так как это стандарт для Django.
 
 ```yaml
-version: '3.8'
-
 services:
   app:
     image: python:3.9-slim
