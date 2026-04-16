@@ -1,0 +1,74 @@
+dev@dev-vm:~/Documents/9_task$ sudo docker compose logs app
+WARN[0000] /home/dev/Documents/9_task/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+app-1  | 
+app-1  | added 93 packages, and audited 94 packages in 10s
+app-1  | 
+app-1  | 16 packages are looking for funding
+app-1  |   run `npm fund` for details
+app-1  | 
+app-1  | found 0 vulnerabilities
+app-1  | npm notice
+app-1  | npm notice New major version of npm available! 10.8.2 -> 11.12.1
+app-1  | npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.12.1
+app-1  | npm notice To update run: npm install -g npm@11.12.1
+app-1  | npm notice
+app-1  | Server is running on port 3000
+app-1  | /usr/src/app/node_modules/mongoose/lib/document.js:3221
+app-1  |     this.$__.validationError = new ValidationError(this);
+app-1  |                                ^
+app-1  | 
+app-1  | ValidationError: Sale validation failed: date: Cast to date failed for value "2026-0410" (type string) at path "date"
+app-1  |     at Document.invalidate (/usr/src/app/node_modules/mongoose/lib/document.js:3221:32)
+app-1  |     at model.$set (/usr/src/app/node_modules/mongoose/lib/document.js:1466:12)
+app-1  |     at model.$set (/usr/src/app/node_modules/mongoose/lib/document.js:1121:16)
+app-1  |     at model.Document (/usr/src/app/node_modules/mongoose/lib/document.js:167:12)
+app-1  |     at model.Model (/usr/src/app/node_modules/mongoose/lib/model.js:123:12)
+app-1  |     at new model (/usr/src/app/node_modules/mongoose/lib/model.js:4755:15)
+app-1  |     at /usr/src/app/server.js:17:18
+app-1  |     at Layer.handle [as handle_request] (/usr/src/app/node_modules/express/lib/router/layer.js:95:5)
+app-1  |     at next (/usr/src/app/node_modules/express/lib/router/route.js:149:13)
+app-1  |     at Route.dispatch (/usr/src/app/node_modules/express/lib/router/route.js:119:3) {
+app-1  |   errors: {
+app-1  |     date: CastError: Cast to date failed for value "2026-0410" (type string) at path "date"
+app-1  |         at SchemaDate.cast (/usr/src/app/node_modules/mongoose/lib/schema/date.js:376:11)
+app-1  |         at SchemaType.applySetters (/usr/src/app/node_modules/mongoose/lib/schematype.js:1219:12)
+app-1  |         at model.$set (/usr/src/app/node_modules/mongoose/lib/document.js:1424:22)
+app-1  |         at model.$set (/usr/src/app/node_modules/mongoose/lib/document.js:1121:16)
+app-1  |         at model.Document (/usr/src/app/node_modules/mongoose/lib/document.js:167:12)
+app-1  |         at model.Model (/usr/src/app/node_modules/mongoose/lib/model.js:123:12)
+app-1  |         at new model (/usr/src/app/node_modules/mongoose/lib/model.js:4755:15)
+app-1  |         at /usr/src/app/server.js:17:18
+app-1  |         at Layer.handle [as handle_request] (/usr/src/app/node_modules/express/lib/router/layer.js:95:5)
+app-1  |         at next (/usr/src/app/node_modules/express/lib/router/route.js:149:13) {
+app-1  |       stringValue: '"2026-0410"',
+app-1  |       messageFormat: undefined,
+app-1  |       kind: 'date',
+app-1  |       value: '2026-0410',
+app-1  |       path: 'date',
+app-1  |       reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+app-1  |       
+app-1  |         assert.ok(false)
+app-1  |       
+app-1  |           at castDate (/usr/src/app/node_modules/mongoose/lib/cast/date.js:40:10)
+app-1  |           at SchemaDate.cast (/usr/src/app/node_modules/mongoose/lib/schema/date.js:374:12)
+app-1  |           at SchemaType.applySetters (/usr/src/app/node_modules/mongoose/lib/schematype.js:1219:12)
+app-1  |           at model.$set (/usr/src/app/node_modules/mongoose/lib/document.js:1424:22)
+app-1  |           at model.$set (/usr/src/app/node_modules/mongoose/lib/document.js:1121:16)
+app-1  |           at model.Document (/usr/src/app/node_modules/mongoose/lib/document.js:167:12)
+app-1  |           at model.Model (/usr/src/app/node_modules/mongoose/lib/model.js:123:12)
+app-1  |           at new model (/usr/src/app/node_modules/mongoose/lib/model.js:4755:15)
+app-1  |           at /usr/src/app/server.js:17:18
+app-1  |           at Layer.handle [as handle_request] (/usr/src/app/node_modules/express/lib/router/layer.js:95:5) {
+app-1  |         generatedMessage: true,
+app-1  |         code: 'ERR_ASSERTION',
+app-1  |         actual: false,
+app-1  |         expected: true,
+app-1  |         operator: '=='
+app-1  |       },
+app-1  |       valueType: 'string'
+app-1  |     }
+app-1  |   },
+app-1  |   _message: 'Sale validation failed'
+app-1  | }
+app-1  | 
+app-1  | Node.js v18.20.8
