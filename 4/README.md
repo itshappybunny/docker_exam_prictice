@@ -1,3 +1,8 @@
+dev@dev-vm:~/Documents/4_task$ sudo docker compose ps
+WARN[0000] /home/dev/Documents/4_task/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+NAME          IMAGE         COMMAND                  SERVICE   CREATED              STATUS              PORTS
+4_task-db-1   postgres:15   "docker-entrypoint.s…"   db        About a minute ago   Up About a minute   5432/tcp
+dev@dev-vm:~/Documents/4_task$ 
 
 ### Шаг 1: Подготовка папки
 ```bash
