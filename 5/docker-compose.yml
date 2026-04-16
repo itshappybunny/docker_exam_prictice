@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  app:
+    image: python:3.9-slim
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+    command: sh -c "pip install -r requirements.txt && python app.py"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: neo4j:latest
+    environment:
+      NEO4J_AUTH: neo4j/password
+      NEO4J_PLUGINS: '["apoc"]'
+    ports:
+      - "7474:7474" # Веб-интерфейс
+      - "7687:7687" # Bolt протокол
+    healthcheck:
+      test: ["CMD", "cypher-shell", "-u", "neo4j", "-p", "password", "RETURN 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - neo4j_data:/data
+
+volumes:
+  neo4j_data:
