@@ -1,185 +1,3 @@
-dev@dev-vm:~/Documents/4_task$ sudo docker compose logs app
-WARN[0000] /home/dev/Documents/4_task/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
-app-1  | Collecting django
-app-1  |   Downloading django-4.2.30-py3-none-any.whl (8.0 MB)
-app-1  |      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.0/8.0 MB 10.0 MB/s eta 0:00:00
-app-1  | Collecting psycopg2-binary
-app-1  |   Downloading psycopg2_binary-2.9.11-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
-app-1  |      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 11.2 MB/s eta 0:00:00
-app-1  | Collecting uvicorn
-app-1  |   Downloading uvicorn-0.39.0-py3-none-any.whl (68 kB)
-app-1  |      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 68.5/68.5 kB 10.2 MB/s eta 0:00:00
-app-1  | Collecting gunicorn
-app-1  |   Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
-app-1  |      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.0/85.0 kB 8.3 MB/s eta 0:00:00
-app-1  | Collecting sqlparse>=0.3.1
-app-1  |   Downloading sqlparse-0.5.5-py3-none-any.whl (46 kB)
-app-1  |      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.1/46.1 kB 2.1 MB/s eta 0:00:00
-app-1  | Collecting asgiref<4,>=3.6.0
-app-1  |   Downloading asgiref-3.11.1-py3-none-any.whl (24 kB)
-app-1  | Collecting h11>=0.8
-app-1  |   Downloading h11-0.16.0-py3-none-any.whl (37 kB)
-app-1  | Collecting typing-extensions>=4.0
-app-1  |   Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
-app-1  |      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.6/44.6 kB 6.6 MB/s eta 0:00:00
-app-1  | Collecting click>=7.0
-app-1  |   Downloading click-8.1.8-py3-none-any.whl (98 kB)
-app-1  |      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.2/98.2 kB 8.7 MB/s eta 0:00:00
-app-1  | Collecting packaging
-app-1  |   Downloading packaging-26.1-py3-none-any.whl (95 kB)
-app-1  |      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 95.8/95.8 kB 8.9 MB/s eta 0:00:00
-app-1  | Installing collected packages: typing-extensions, sqlparse, psycopg2-binary, packaging, h11, click, uvicorn, gunicorn, asgiref, django
-app-1  | Successfully installed asgiref-3.11.1 click-8.1.8 django-4.2.30 gunicorn-23.0.0 h11-0.16.0 packaging-26.1 psycopg2-binary-2.9.11 sqlparse-0.5.5 typing-extensions-4.15.0 uvicorn-0.39.0
-app-1  | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-app-1  | 
-app-1  | [notice] A new release of pip is available: 23.0.1 -> 26.0.1
-app-1  | [notice] To update, run: pip install --upgrade pip
-app-1  | Traceback (most recent call last):
-app-1  |   File "/app/app.py", line 20, in <module>
-app-1  |     django.setup()
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/__init__.py", line 24, in setup
-app-1  |     apps.populate(settings.INSTALLED_APPS)
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/registry.py", line 91, in populate
-app-1  |     app_config = AppConfig.create(entry)
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/config.py", line 193, in create
-app-1  |     import_module(entry)
-app-1  |   File "/usr/local/lib/python3.9/importlib/__init__.py", line 127, in import_module
-app-1  |     return _bootstrap._gcd_import(name[level:], package, level)
-app-1  |   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
-app-1  |   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
-app-1  |   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
-app-1  |   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
-app-1  |   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
-app-1  |   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
-app-1  |   File "/app/app.py", line 23, in <module>
-app-1  |     class Order(models.Model):
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/models/base.py", line 129, in __new__
-app-1  |     app_config = apps.get_containing_app_config(module)
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/registry.py", line 260, in get_containing_app_config
-app-1  |     self.check_apps_ready()
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/registry.py", line 138, in check_apps_ready
-app-1  |     raise AppRegistryNotReady("Apps aren't loaded yet.")
-app-1  | django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
-app-1  | Requirement already satisfied: django in /usr/local/lib/python3.9/site-packages (from -r requirements.txt (line 1)) (4.2.30)
-app-1  | Requirement already satisfied: psycopg2-binary in /usr/local/lib/python3.9/site-packages (from -r requirements.txt (line 2)) (2.9.11)
-app-1  | Requirement already satisfied: uvicorn in /usr/local/lib/python3.9/site-packages (from -r requirements.txt (line 3)) (0.39.0)
-app-1  | Requirement already satisfied: gunicorn in /usr/local/lib/python3.9/site-packages (from -r requirements.txt (line 4)) (23.0.0)
-app-1  | Requirement already satisfied: sqlparse>=0.3.1 in /usr/local/lib/python3.9/site-packages (from django->-r requirements.txt (line 1)) (0.5.5)
-app-1  | Requirement already satisfied: asgiref<4,>=3.6.0 in /usr/local/lib/python3.9/site-packages (from django->-r requirements.txt (line 1)) (3.11.1)
-app-1  | Requirement already satisfied: h11>=0.8 in /usr/local/lib/python3.9/site-packages (from uvicorn->-r requirements.txt (line 3)) (0.16.0)
-app-1  | Requirement already satisfied: click>=7.0 in /usr/local/lib/python3.9/site-packages (from uvicorn->-r requirements.txt (line 3)) (8.1.8)
-app-1  | Requirement already satisfied: typing-extensions>=4.0 in /usr/local/lib/python3.9/site-packages (from uvicorn->-r requirements.txt (line 3)) (4.15.0)
-app-1  | Requirement already satisfied: packaging in /usr/local/lib/python3.9/site-packages (from gunicorn->-r requirements.txt (line 4)) (26.1)
-app-1  | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-app-1  | 
-app-1  | [notice] A new release of pip is available: 23.0.1 -> 26.0.1
-app-1  | [notice] To update, run: pip install --upgrade pip
-app-1  | Traceback (most recent call last):
-app-1  |   File "/app/app.py", line 20, in <module>
-app-1  |     django.setup()
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/__init__.py", line 24, in setup
-app-1  |     apps.populate(settings.INSTALLED_APPS)
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/registry.py", line 91, in populate
-app-1  |     app_config = AppConfig.create(entry)
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/config.py", line 193, in create
-app-1  |     import_module(entry)
-app-1  |   File "/usr/local/lib/python3.9/importlib/__init__.py", line 127, in import_module
-app-1  |     return _bootstrap._gcd_import(name[level:], package, level)
-app-1  |   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
-app-1  |   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
-app-1  |   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
-app-1  |   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
-app-1  |   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
-app-1  |   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
-app-1  |   File "/app/app.py", line 25, in <module>
-app-1  |     class Order(models.Model):
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/models/base.py", line 129, in __new__
-app-1  |     app_config = apps.get_containing_app_config(module)
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/registry.py", line 260, in get_containing_app_config
-app-1  |     self.check_apps_ready()
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/registry.py", line 138, in check_apps_ready
-app-1  |     raise AppRegistryNotReady("Apps aren't loaded yet.")
-app-1  | django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
-app-1  | Requirement already satisfied: django in /usr/local/lib/python3.9/site-packages (from -r requirements.txt (line 1)) (4.2.30)
-app-1  | Requirement already satisfied: psycopg2-binary in /usr/local/lib/python3.9/site-packages (from -r requirements.txt (line 2)) (2.9.11)
-app-1  | Requirement already satisfied: uvicorn in /usr/local/lib/python3.9/site-packages (from -r requirements.txt (line 3)) (0.39.0)
-app-1  | Requirement already satisfied: gunicorn in /usr/local/lib/python3.9/site-packages (from -r requirements.txt (line 4)) (23.0.0)
-app-1  | Requirement already satisfied: asgiref<4,>=3.6.0 in /usr/local/lib/python3.9/site-packages (from django->-r requirements.txt (line 1)) (3.11.1)
-app-1  | Requirement already satisfied: sqlparse>=0.3.1 in /usr/local/lib/python3.9/site-packages (from django->-r requirements.txt (line 1)) (0.5.5)
-app-1  | Requirement already satisfied: click>=7.0 in /usr/local/lib/python3.9/site-packages (from uvicorn->-r requirements.txt (line 3)) (8.1.8)
-app-1  | Requirement already satisfied: typing-extensions>=4.0 in /usr/local/lib/python3.9/site-packages (from uvicorn->-r requirements.txt (line 3)) (4.15.0)
-app-1  | Requirement already satisfied: h11>=0.8 in /usr/local/lib/python3.9/site-packages (from uvicorn->-r requirements.txt (line 3)) (0.16.0)
-app-1  | Requirement already satisfied: packaging in /usr/local/lib/python3.9/site-packages (from gunicorn->-r requirements.txt (line 4)) (26.1)
-app-1  | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-app-1  | 
-app-1  | [notice] A new release of pip is available: 23.0.1 -> 26.0.1
-app-1  | [notice] To update, run: pip install --upgrade pip
-app-1  | Traceback (most recent call last):
-app-1  |   File "/app/app.py", line 20, in <module>
-app-1  |     django.setup()
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/__init__.py", line 24, in setup
-app-1  |     apps.populate(settings.INSTALLED_APPS)
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/registry.py", line 91, in populate
-app-1  |     app_config = AppConfig.create(entry)
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/config.py", line 193, in create
-app-1  |     import_module(entry)
-app-1  |   File "/usr/local/lib/python3.9/importlib/__init__.py", line 127, in import_module
-app-1  |     return _bootstrap._gcd_import(name[level:], package, level)
-app-1  |   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
-app-1  |   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
-app-1  |   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
-app-1  |   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
-app-1  |   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
-app-1  |   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
-app-1  |   File "/app/app.py", line 25, in <module>
-app-1  |     class Order(models.Model):
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/models/base.py", line 129, in __new__
-app-1  |     app_config = apps.get_containing_app_config(module)
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/registry.py", line 260, in get_containing_app_config
-app-1  |     self.check_apps_ready()
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/registry.py", line 138, in check_apps_ready
-app-1  |     raise AppRegistryNotReady("Apps aren't loaded yet.")
-app-1  | django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
-app-1  | Requirement already satisfied: django in /usr/local/lib/python3.9/site-packages (from -r requirements.txt (line 1)) (4.2.30)
-app-1  | Requirement already satisfied: psycopg2-binary in /usr/local/lib/python3.9/site-packages (from -r requirements.txt (line 2)) (2.9.11)
-app-1  | Requirement already satisfied: uvicorn in /usr/local/lib/python3.9/site-packages (from -r requirements.txt (line 3)) (0.39.0)
-app-1  | Requirement already satisfied: gunicorn in /usr/local/lib/python3.9/site-packages (from -r requirements.txt (line 4)) (23.0.0)
-app-1  | Requirement already satisfied: sqlparse>=0.3.1 in /usr/local/lib/python3.9/site-packages (from django->-r requirements.txt (line 1)) (0.5.5)
-app-1  | Requirement already satisfied: asgiref<4,>=3.6.0 in /usr/local/lib/python3.9/site-packages (from django->-r requirements.txt (line 1)) (3.11.1)
-app-1  | Requirement already satisfied: h11>=0.8 in /usr/local/lib/python3.9/site-packages (from uvicorn->-r requirements.txt (line 3)) (0.16.0)
-app-1  | Requirement already satisfied: click>=7.0 in /usr/local/lib/python3.9/site-packages (from uvicorn->-r requirements.txt (line 3)) (8.1.8)
-app-1  | Requirement already satisfied: typing-extensions>=4.0 in /usr/local/lib/python3.9/site-packages (from uvicorn->-r requirements.txt (line 3)) (4.15.0)
-app-1  | Requirement already satisfied: packaging in /usr/local/lib/python3.9/site-packages (from gunicorn->-r requirements.txt (line 4)) (26.1)
-app-1  | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-app-1  | 
-app-1  | [notice] A new release of pip is available: 23.0.1 -> 26.0.1
-app-1  | [notice] To update, run: pip install --upgrade pip
-app-1  | Traceback (most recent call last):
-app-1  |   File "/app/app.py", line 22, in <module>
-app-1  |     django.setup()
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/__init__.py", line 24, in setup
-app-1  |     apps.populate(settings.INSTALLED_APPS)
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/registry.py", line 91, in populate
-app-1  |     app_config = AppConfig.create(entry)
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/config.py", line 193, in create
-app-1  |     import_module(entry)
-app-1  |   File "/usr/local/lib/python3.9/importlib/__init__.py", line 127, in import_module
-app-1  |     return _bootstrap._gcd_import(name[level:], package, level)
-app-1  |   File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
-app-1  |   File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
-app-1  |   File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
-app-1  |   File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
-app-1  |   File "<frozen importlib._bootstrap_external>", line 850, in exec_module
-app-1  |   File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
-app-1  |   File "/app/app.py", line 27, in <module>
-app-1  |     class Order(models.Model):
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/db/models/base.py", line 129, in __new__
-app-1  |     app_config = apps.get_containing_app_config(module)
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/registry.py", line 260, in get_containing_app_config
-app-1  |     self.check_apps_ready()
-app-1  |   File "/usr/local/lib/python3.9/site-packages/django/apps/registry.py", line 138, in check_apps_ready
-app-1  |     raise AppRegistryNotReady("Apps aren't loaded yet.")
-app-1  | django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
 
 ### Шаг 1: Подготовка папки
 ```bash
@@ -189,7 +7,7 @@ touch docker-compose.yml app.py requirements.txt
 
 ---
 
-### Шаг 2: Написание Django-приложения (`app.py`)
+### Шаг 2: Написание Django-приложения (`main.py`)
 Мы будем использовать Django в режиме «одного файла» (mini-app), чтобы упростить задачу для экзамена.
 
 ```python
@@ -198,8 +16,9 @@ import django
 from django.conf import settings
 from django.http import JsonResponse
 from datetime import timedelta
+from django.utils import timezone
 
-# 1. Сначала настройки
+# 1. Настройки
 if not settings.configured:
     settings.configure(
         DEBUG=True,
@@ -207,32 +26,31 @@ if not settings.configured:
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'orders_db', 'USER': 'admin', 'PASSWORD': 'password', 'HOST': 'db', 'PORT': '5432',
         }},
-        INSTALLED_APPS=('app',),
+        INSTALLED_APPS=[], # Оставляем пустым, чтобы не было рекурсии
         TIME_ZONE='UTC',
         USE_TZ=True,
-        SECRET_KEY='fake-key'
+        SECRET_KEY='fake-key',
+        ROOT_URLCONF=__name__,
     )
     django.setup()
 
-# 2. Теперь импортируем модели и всё остальное
 from django.db import models, connection
 
+# 2. Модель (без привязки к приложению через app_label)
 class Order(models.Model):
     item = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     delivered_at = models.DateTimeField(null=True)
 
     class Meta:
-        app_label = 'app'
-        managed = False # Чтобы Django не пытался сам управлять таблицей, которую мы создадим вручную
+        managed = False
         db_table = 'app_order'
+        app_label = 'main_app' # Любое имя, отличное от имени файла
 
-# 3. API функции
+# 3. Функции
 def add_order(request):
     item_name = request.GET.get('item', 'Generic Item')
     order = Order.objects.create(item=item_name)
-    # Имитируем доставку
-    from django.utils import timezone
     order.delivered_at = timezone.now() + timedelta(hours=2)
     order.save()
     return JsonResponse({"status": "Заказ создан", "id": order.id})
@@ -253,11 +71,17 @@ urlpatterns = [
     path('report/', delivery_report),
 ]
 
-# 5. Запуск
+# 5. Приложение для сервера
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+
 if __name__ == "__main__":
-    # Создаем таблицу вручную, так как мы в mini-режиме
+    import uvicorn
     import time
-    time.sleep(5) # Даем базе время проснуться
+    
+    print("Ожидание базы данных (15 сек)...")
+    time.sleep(15)
+    
     with connection.cursor() as cursor:
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS app_order (
@@ -268,10 +92,7 @@ if __name__ == "__main__":
             );
         """)
     
-    from django.core.wsgi import get_wsgi_application
-    application = get_wsgi_application()
-    
-    import uvicorn
+    print("Старт сервера на http://localhost:8000")
     uvicorn.run(application, host="0.0.0.0", port=8000)
 ```
 
