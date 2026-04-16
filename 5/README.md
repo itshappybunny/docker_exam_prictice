@@ -1,9 +1,3 @@
-dev@dev-vm:~/Documents/5_task$ sudo docker compose ps
-WARN[0000] /home/dev/Documents/5_task/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
-NAME          IMAGE          COMMAND                  SERVICE   CREATED          STATUS                    PORTS
-5_task-db-1   neo4j:latest   "tini -g -- /startup…"   db        10 minutes ago   Up 10 minutes (healthy)   0.0.0.0:7474->7474/tcp, 7473/tcp, 0.0.0.0:7687->7687/tcp
-
-
 Будем использовать язык запросов **Cypher**.
 
 ---
