@@ -59,8 +59,8 @@ urlpatterns = [
 ]
 
 # 5. Приложение для сервера
-from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
+from django.core.handleers.asgi import ASGIHandler
+application = ASGIHandler()
 
 if __name__ == "__main__":
     import uvicorn

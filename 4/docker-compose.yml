@@ -6,7 +6,7 @@ services:
       - .:/app
     ports:
       - "8000:8000"
-    command: sh -c "pip install -r requirements.txt && python app.py"
+    command: sh -c "pip install -r requirements.txt && python main.py"
     depends_on:
       - db
 
