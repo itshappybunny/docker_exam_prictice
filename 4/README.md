@@ -1,3 +1,9 @@
+dev@dev-vm:~/Documents/4_task$ sudo docker compose ps
+NAME           IMAGE             COMMAND                  SERVICE   CREATED              STATUS              PORTS
+4_task-app-1   python:3.9-slim   "sh -c 'pip install …"   app       About a minute ago   Up About a minute   0.0.0.0:8000->8000/tcp
+4_task-db-1    postgres:15       "docker-entrypoint.s…"   db        About a minute ago   Up About a minute   5432/tcp
+dev@dev-vm:~/Documents/4_task$ curl "http://localhost:8000/add/?item=Laptop"
+Internal Server Error
 
 ### Шаг 1: Подготовка папки
 ```bash
